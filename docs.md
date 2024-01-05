@@ -89,4 +89,10 @@ var x = []int{1,2,3} // slice of length 3
 - defer operates at function scope, not block scope. The defer will happen when the function returns, not when the block ends.
 - values passed to defer functions get copied at the point of writing the defer statement, not when  defer is executed.
 
+### Closures
+- Go approach is to allocate as much as possible on the stack, but it will allocate on the heap when the lifetime will exceed the scope whatever context that variable is in.
+- So lifetime can exceed the scope in which  the variable is declared.
+- Closure capture.
+- a closure is a type of function call that has additional data from outside the function like from another function scope and is closed over by reference.
+- Gotcha! -> if a closure if executed asychronously i.e later on then it is possible that the variable that I closed over mutates in the meantime. A simple fix is to create a local copy & then you close over that local copy which can not mutate again
 
