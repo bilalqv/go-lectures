@@ -73,4 +73,20 @@ var x = []int{1,2,3} // slice of length 3
 ### File IO
 - always check for errors and handle them. Don't ignore them.
 
+### Functions
+- we can do anything with functions as we can do with string or int
+- function signature -> order and type of parameters and return types
+- a function declaration lists Formal Parameters, while a function call has Actual Parameters
+- Parameters by value -> numbers, bools, arrays, structs
+- Parameters by reference -> slices, maps, channels, strings, things passed by pointers (&x)
+- since arrays are passed by value, so the actual parameter is copied into the formal parameter. if we modify the arr[i] inside function, the actual parameter will not be modified. 
+- Slices are passed by reference, so if we modify the slice inside function, the actual parameter will be modified.
+- From a technical point of view, there is no such thing as by reference in Go. Every parameter is passed by value, because the formal parameter is a local variable in the function it gets copied  the value of the actual parameter. NOW, if that value is a descriptor, then we refer to something that was referred to from outside from the function. So, the slice descriptor gets copied to the slice descriptor of the formal parameter. they both point to the actual table of data in memo, so we think of slices by reference, but slice descriptor isn't by reference, it is copied. Similaraly, map descriptor is copied, but they point to the same hash table. Then we have the third case where we pass a pointer to the map descriptor and wehn I change that in function, I am also changing the map descriptor outside the function, so we have our original outside map changed, not just the value inside the map, but it became an entirely different map.
+- Go allows returning multiple values from a function.
+
+### Defer
+- two consecutive defer statements are executed in reverse order. They get stacked up.
+- defer operates at function scope, not block scope. The defer will happen when the function returns, not when the block ends.
+- values passed to defer functions get copied at the point of writing the defer statement, not when  defer is executed.
+
 
