@@ -96,3 +96,10 @@ var x = []int{1,2,3} // slice of length 3
 - a closure is a type of function call that has additional data from outside the function like from another function scope and is closed over by reference.
 - Gotcha! -> if a closure if executed asychronously i.e later on then it is possible that the variable that I closed over mutates in the meantime. A simple fix is to create a local copy & then you close over that local copy which can not mutate again
 
+### Slices in Detail
+- nil slice -> len = 0, cap = 0, pointer = null
+- empty slice -> len = 0, cap = 0, pointer = not null , pointing to a special location in memo
+- when we encode a nil slice in json, we get null, but when we encode an empty slice in json, we get an empty array. -> Similaraly with Maps as well.
+- to check the slice, we can use: if len(s) == 0 {....} 
+- we can append to a nil slice
+- a := []int{1, 2, 3} -> here slice a points to some un-named array in memo.

@@ -43,7 +43,7 @@ func closure2() {
 	s := make([]func(), 4)
 
 	for i := 0; i < 4; i++ {
-		i2 := i // closure capture
+		i2 := i // closure capture - simple fix
 		s[i] = func() {
 			fmt.Printf("%d  @  %p\n", i2, &i2)
 		}
