@@ -120,3 +120,6 @@ var x = []int{1,2,3} // slice of length 3
 - generally, stack allocation is more efficient, & Go will try to allocate on stack as much as possible. -> reasons: Garbage collection, how cache works.
 - avoid using new in Go.
 - Single biggest in Go is anytime u take a reference to a mutating loop variable & u keep it
+
+### Networking
+- 
