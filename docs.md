@@ -111,4 +111,12 @@ var x = []int{1,2,3} // slice of length 3
 - two named structs with similar fields are not compatible, we can not assign one to another, we first need to type convert them before assignment. But two anonymous structs with similar fields are compatible.
 - struct tags are mostly used for doing conversion of data in the program to an external format like json, xml, etc.
 - Private fields(lowercse fields) of a struct that are not exported, are not encoded using struct tags.
-- 
+
+### Reference & Value
+- Pointer Semantics -> Efficient
+- Value Semantics -> integrity, especially in concurrency.
+- we can not copy mutexes, any struct that contains a mutex, needs to be operated using pointer semantics.
+- An alternative to taking a pointer to a struct, is to take the value of the struct, change it & give it back. (This is OK if the struct size is less than 64bytes ) -> common in functional programming.
+- generally, stack allocation is more efficient, & Go will try to allocate on stack as much as possible. -> reasons: Garbage collection, how cache works.
+- avoid using new in Go.
+- Single biggest in Go is anytime u take a reference to a mutating loop variable & u keep it
