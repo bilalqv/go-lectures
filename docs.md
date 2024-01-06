@@ -103,3 +103,12 @@ var x = []int{1,2,3} // slice of length 3
 - to check the slice, we can use: if len(s) == 0 {....} 
 - we can append to a nil slice
 - a := []int{1, 2, 3} -> here slice a points to some un-named array in memo.
+
+
+### Structs
+- There is a limitation on maps, we can not take the address of a Map entry. When we give a key, we get the value, we can not get the address of the value in the map. The reason being that the entries in the map can re-arrange themselves.
+- If I've a map of structs & I want to do something to a value inside that struct like m["key"].field = 5, I can't do that. So, we can use map of say string -> struct pointer, and that will work.
+- two named structs with similar fields are not compatible, we can not assign one to another, we first need to type convert them before assignment. But two anonymous structs with similar fields are compatible.
+- struct tags are mostly used for doing conversion of data in the program to an external format like json, xml, etc.
+- Private fields(lowercse fields) of a struct that are not exported, are not encoded using struct tags.
+- 
