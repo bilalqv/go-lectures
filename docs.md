@@ -140,3 +140,6 @@ var x = []int{1,2,3} // slice of length 3
 - Prefer composition over inheritance.???
 - Go offers abstraction & encapsulation; & polymorphism through interfaces. There is no inheritance in Go becoz there are no classes
 - Go says -> inheritence is enough of a problem that are gonna do OOP without inheritance.
+
+### Methods & Interfaces
+- We can put methods on any user declared type.
