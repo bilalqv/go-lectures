@@ -123,3 +123,20 @@ var x = []int{1,2,3} // slice of length 3
 
 ### Networking
 - 
+
+### OOPS
+- For most people, essential emelents of OOPS are:
+    - Abstraction
+    - Encapsulation
+    - Polymorphism
+    - Inheritance
+        But sometimes the last two are combined or confused.
+- Abstraction -> decoupling behaviour from implementation details. UNIX file system is a great example. we use them but we don't know how they are implemented.
+- Encapsulation -> hiding implementation details from misuse. It usually means controlling visibility of names (private variables)
+- Polymorphism -> having many shapes. There are three main types:
+    - Ad-hoc: typically found in function/operator overloading.
+    - Parametric: k/a generic programming. (not in Go)
+    - Subtype: subclass substituting for superclass.
+- Prefer composition over inheritance.???
+- Go offers abstraction & encapsulation; & polymorphism through interfaces. There is no inheritance in Go becoz there are no classes
+- Go says -> inheritence is enough of a problem that are gonna do OOP without inheritance.
