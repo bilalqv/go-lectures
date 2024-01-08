@@ -151,3 +151,7 @@ var x = []int{1,2,3} // slice of length 3
 - If I have a base struct Pair & derived one PairWithLength, when PairWithLength goes to resolve a methods, it first checks if there a method defined with that name in PairWithLength, if yes then it uses that method, if not then it checks in Pair. So, derived one can either use the method of the base struct or override it.
 - if a function takes a base struct as a parameter, it can not take a derived struct as a parameter, becoz they are not compatible.
 - we can also use pointers to structs in composition.
+
+### Interfaces & Methods in Detail
+- a method value works like a normal closure if u take a pointer receiver, but it captures (copies) the value immediately if u take a value receiver.
+- when u r returning the errors, return the error interface, but the rest of the time, prefer to return a pointer or just a concrete value, not an interface.
