@@ -143,3 +143,11 @@ var x = []int{1,2,3} // slice of length 3
 
 ### Methods & Interfaces
 - We can put methods on any user declared type.
+
+### Composition
+- it lets us build structs from other structs.
+- composition is not inheritance.
+- fields of the base struct get promoted into the derived struct. It means the fields of the base struct appear at the same level as the fields of the derived struct.
+- If I have a base struct Pair & derived one PairWithLength, when PairWithLength goes to resolve a methods, it first checks if there a method defined with that name in PairWithLength, if yes then it uses that method, if not then it checks in Pair. So, derived one can either use the method of the base struct or override it.
+- if a function takes a base struct as a parameter, it can not take a derived struct as a parameter, becoz they are not compatible.
+- we can also use pointers to structs in composition.
