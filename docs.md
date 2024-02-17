@@ -6,7 +6,10 @@
  - cat ./3_basic/nums.txt | go run ./3_basic/
 
 
-
+### 03 Basic
+- Pointer is just an address of something.
+- Pointer is either nil or not. A Pointer references something & if it has the value nil then it doesn't point at anything.
+- Only Numbers, Booleans & Strings can be made Constant in Go. In Go, Const means immutable, it can never change.
 
 
 

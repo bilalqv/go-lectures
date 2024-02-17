@@ -16,20 +16,20 @@ type ByteCounter int // ByteCounter is a writer, because it has a right method (
 
 func main() {
 	// ---------------------------  01 -----------------------
-	// f1()
+	f1()
 
 	// ----------------------- 02 ---------------------------
-	// f2()
+	f2()
 
 	// --------------------  Point, Line, Distance, Distancer -----------------
-	// side := Line{Point{1, 3}, Point{4, 6}}
-	// plot := Path{{1, 1}, {5, 1}, {5, 4}, {1, 1}} // since Path is a slice of points, we don't need to write Point{}
+	side := Line{Point{1, 3}, Point{4, 6}}
+	plot := Path{{1, 1}, {5, 1}, {5, 4}, {1, 1}} // since Path is a slice of points, we don't need to write Point{}
 
-	// PrintDistance(side)
-	// PrintDistance(plot)
+	PrintDistance(side)
+	PrintDistance(plot)
 
 	// -------------------------- Scaling a Line ---------------------
-	side := Line{Point{1, 2}, Point{4, 6}}
+	side = Line{Point{1, 2}, Point{4, 6}}
 
 	s2 := side.ScaleBy(2)
 
@@ -85,36 +85,6 @@ func (b *ByteCounter) Write(p []byte) (int, error) {
 }
 
 // --------------------  Point, Line, Distance, Distancer -----------------
-// type Point struct {
-// 	X, Y float64
-// }
-
-// type Line struct {
-// 	Begin, End Point
-// }
-
-// type Path []Point
-
-// func (l Line) Distance() float64 {
-// 	return math.Hypot(l.End.X-l.Begin.X, l.End.Y-l.Begin.Y)
-// }
-
-// func (p Path) Distance() (sum float64) {
-// 	for i := 1; i < len(p); i++ {
-// 		sum += Line{p[i-1], p[i]}.Distance() // here creating a line on the fly, becoz Distance does not need pointer
-// 	}
-// 	return sum
-// }
-
-// type Distancer interface {
-// 	Distance() float64
-// }
-
-// func PrintDistance(d Distancer) {
-// 	fmt.Println(d.Distance())
-// }
-
-// --------------------------------- Scaling a Line ----------------------------
 type Point struct {
 	X, Y float64
 }
@@ -123,9 +93,39 @@ type Line struct {
 	Begin, End Point
 }
 
+type Path []Point
+
 func (l Line) Distance() float64 {
 	return math.Hypot(l.End.X-l.Begin.X, l.End.Y-l.Begin.Y)
 }
+
+func (p Path) Distance() (sum float64) {
+	for i := 1; i < len(p); i++ {
+		sum += Line{p[i-1], p[i]}.Distance() // here creating a line on the fly, becoz Distance does not need pointer
+	}
+	return sum
+}
+
+type Distancer interface {
+	Distance() float64
+}
+
+func PrintDistance(d Distancer) {
+	fmt.Println(d.Distance())
+}
+
+// --------------------------------- Scaling a Line ----------------------------
+// type Point struct {
+// 	X, Y float64
+// }
+
+// type Line struct {
+// 	Begin, End Point
+// }
+
+// func (l Line) Distance() float64 {
+// 	return math.Hypot(l.End.X-l.Begin.X, l.End.Y-l.Begin.Y)
+// }
 
 func (l Line) ScaleBy(f float64) Line { // create a copy of Line, modify it & return it
 	l.End.X += (f - 1) * (l.End.X - l.Begin.X)

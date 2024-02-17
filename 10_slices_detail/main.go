@@ -30,4 +30,8 @@ func main() {
 	fmt.Printf("a[%p] = %v\n", &a, a)
 	fmt.Printf("c[%p] = %[1]v\n", c)
 
+	c = append(c, 8) // here since len(c) == cap(c) -> new array is created
+	fmt.Printf("a[%p] = %v\n", &a, a)
+	fmt.Printf("c[%p] = %[1]v\n", c)
+
 }
