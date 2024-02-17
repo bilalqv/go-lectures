@@ -11,7 +11,13 @@
 - Pointer is either nil or not. A Pointer references something & if it has the value nil then it doesn't point at anything.
 - Only Numbers, Booleans & Strings can be made Constant in Go. In Go, Const means immutable, it can never change.
 
-
+### Strings
+- all ASCII characters fit into 1 byte, but when we move to international languages, every character can not fit into 1 byte.
+- in Go, Strings are physically the UTF-8 encoding of the unicode characters.
+- A byte is a synonym for an 8-bit integer.
+- Rune -> a synonym for an 32-bit integer.
+- len(s) gives us the length of the byte string that's necessary to encode the string in UTF-8.
+- a string variable name is Descriptor. It has a pointer to the actual location in memo where these bytes are stored & the number of bytes that make up that string.
 
 ### Arrays
 // slice -> variable length array
